@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="bigTest">
+    <test name="TwoLinesAgentHangupv2" preserve-order="true">
+        <classes>
+            <class name="bigTest.BigTestCFWrapper">
+                <methods>
+                    <include name="ssoLoginChrome"/>
+                    <include name="callOnFirstLine"/>
+                    <include name="callOnSecondLine"/>
+                    <include name="agentHangupLine1"/>
+                    <include name="agentHangupLine2"/>
+                    <include name="setResultCodeAndCheckAvailableStatus"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="TwoLinesClientHangupv2" preserve-order="true">
+        <classes>
+            <class name="bigTest.BigTestCFWrapper">
+                <methods>
+                    <include name="callOnFirstLine_"/>
+                    <include name="callOnSecondLine_"/>
+                    <include name="callOnSecondLine_"/>
+                    <include name="clientHangupLine1"/>
+                    <include name="clientHangupLine2"/>
+                    <include name="setResultCodeAndCheckAvailableStatus_"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PDProgressiveReleasedAUXagentHangup" preserve-order="true">
+         <classes>
+             <class name="bigTest.BigTestCFWrapper">
+                 <methods>
+                     <include name="changeStatusToAUX"/>
+                     <include name="runSQLQuery"/>
+                     <include name="waitForCallOnClientSide"/>
+                     <include name="noIncomingCallToAgent"/>
+                     <include name="changeStatusToAvailable"/>
+                     <include name="waitForCallOnClientSide2"/>
+                     <include name="receiveIncomingCallToAgent"/>
+                     <include name="agentHangup"/>
+                     <include name="setResultCodeAndCheckAvailableStatus__"/>
+                 </methods>
+             </class>
+         </classes>
+     </test>
+     <test name="PDProgressiveReleasedAUXafterCall" preserve-order="true">
+        <classes>
+            <class name="bigTest.BigTestCFWrapper">
+                <methods>
+                    <include name="runSQLQuery_"/>
+                    <include name="waitForCallOnClientSide2_"/>
+                    <include name="receiveIncomingCallToAgent_"/>
+                    <include name="changeStatusToAUX_"/>
+                    <include name="agentHangup_"/>
+                    <include name="setResultCodeAndCheckAUXStatus"/>
+                    <include name="waitForCallOnClientSide_"/>
+                    <include name="noIncomingCallToAgent_"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="PDPreviewFreeCallChrome" preserve-order="true">
+        <classes>
+            <class name="bigTest.BigTestCFWrapper">
+                <methods>
+                    <include name="ssoLoginChrome_"/>
+                    <include name="changeStatusToAUX__"/>
+                    <include name="switchToADTab"/>
+                    <include name="runSQLQuery__"/>
+                    <include name="noIncomingCall"/>
+                    <include name="changeStatusToAvailable_"/>
+                    <!--<include name="switchToADTab__"/>
+                    <include name="agentAcceptCall"/>
+                    <include name="answerCallOnClientSide"/>
+                    <include name="saveCRMCard"/>
+                    <include name="checkAvailableStatus"/>-->
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="webchatp">
+    <test name="whole script">
+        <classes>
+            <class name="powerdialer.LoginToPDRunPDCampaignAndRunSQLQuery257">
+                <methods>
+                   <include name = "controlFlow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

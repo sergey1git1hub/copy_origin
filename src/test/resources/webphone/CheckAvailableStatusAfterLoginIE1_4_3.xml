@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="webchatp">
+    <test name="whole script">
+        <classes>
+            <class name="webphone.CheckStatusAfterLoginIE1_4_3">
+                <methods>
+                    <include name="checkStatusLoop"/>
+                </methods>
+            </class>
+        </classes>
+
+    </test>
+
+</suite>
+
+        <!--CTRL+ALT+L-->

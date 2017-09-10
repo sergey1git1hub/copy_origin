@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="webchatp">
+    <test name="whole script">
+        <classes>
+            <class name="webphone.SSOTestWithCrutchesv2">
+                <methods>
+                    <include name = "ssoLoop"/>
+                    <include name = "sendChromeFeedback"/>
+                    <include name = "getSystemChromeLogs"/>
+                    <include name = "moveChromeLogs"/>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

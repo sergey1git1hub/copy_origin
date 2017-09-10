@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="regression">
+    <test name="agentdesktop">
+        <classes>
+            <class name="agentdesktop.InteractWithCRMCard">
+                <methods>
+                    <include name="controlFlow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="powerdialer">
+        <classes>
+            <class name="powerdialer.LoginToPDRunPDCampaignAndRunSQLQuery">
+                <methods>
+                    <include name="controlFlow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name = "webchatANDwebphone">
+    <classes>
+        <class name="webchatANDwebphone.Webchat">
+            <methods>
+                <!--<include name="makeGroupOnline"/>-->
+                <include name="loadForm"/>
+                <include name="loginAgent"/>
+                <include name="checkStatus"/>
+                <include name="filloutForm"/>
+                <include name="waitScreen"/>
+                <include name="makeChat"/>
+                <include name="messageReceivedByClient"/>
+                <include name="messageReceivedByAgent"/>
+                <include name="checkStatusTiming"/>
+               <!--<include name = "closeClientBrowser"/>-->
+            </methods>
+        </class>
+    </classes>
+    </test>
+
+    <test name="webchat">
+        <classes>
+            <class name="webchatANDwebphone.Webchat">
+                <methods>
+                    <include name="makeGroupOnline"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="webphone">
+        <classes>
+            <class name="webphone.CheckStatusAfterLogin">
+                <methods>
+                    <include name="loginAgent"/>
+                    <include name="checkStatusAvailable"/>
+                </methods>
+            </class>
+            <class name="webphone.CheckStatusAfterLoginIE1_4_3">
+                <methods>
+                    <include name="checkStatusLoop"/>
+                </methods>
+            </class>
+            <class name="webphone.SSOTestWithCrutchesv2">
+                <methods>
+                    <include name="ssoLoop"/>
+              <!--      <include name="sendChromeFeedback"/>
+                    <include name="getSystemChromeLogs"/>
+                    <include name="moveChromeLogs"/>-->
+                </methods>
+            </class>
+            <class name="webphone.TwoLinesClientHangup">
+                      <methods>
+                          <include name = "ssoLoginChrome"/>
+                          <include name = "callOnTwoLines"/>
+                      </methods>
+                  </class>
+        </classes>
+    </test>
+    <test name="webphoneANDagentdesktopANDpowerdialer">
+        <classes>
+            <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeAUX">
+                <methods>
+                    <include name = "controlFlow"/>
+                </methods>
+            </class>
+            <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeCall">
+                <methods>
+                    <!-- <include name = "controlFlow"/>-->
+                    <include name = "controlFlow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="webphoneANDpowerdialer">
+        <classes>
+            <class name="webphoneANDpowerdialer.PDProgressiveReleasedAUX">
+                <methods>
+                    <include name = "controlFlow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="webchatp">
+    <test name="whole script">
+        <classes>
+            <class name="lock.webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeCallChromeSlow">
+                <methods>
+                    <include name = "ssoLoginChrome"/>
+                    <include name = "changeStatusToAvailable"/>
+                    <include name = "switchToADTab"/>
+                    <include name = "runSQLQuery"/>
+                    <include name = "agentAcceptCall"/>
+                    <include name = "answerCallOnClientSide"/>
+                    <include name = "saveCRMCard"/>
+                    <include name = "checkAvailableStatus"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

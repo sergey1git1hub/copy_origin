@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="webchatp">
+    <test name="whole script">
+        <classes>
+            <class name="webphone.TwoLinesAgentHangupv2Slow">
+                <methods>
+                    <include name = "ssoLoginChrome"/>
+                    <include name = "callOnFirstLine"/>
+                    <include name = "callOnSecondLine"/>
+                    <include name = "agentHangupLine1()"/>
+                    <include name = "agentHangupLine2()"/>
+                    <include name = "setResultCodeAndCheckAvailableStatus"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

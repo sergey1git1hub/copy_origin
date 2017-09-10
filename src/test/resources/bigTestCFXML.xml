@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="bigTest" preserve-order="true">
+    <test name="TwoLinesAgentHangupv2withoutDependencies" preserve-order="true">
+        <classes>
+            <class name="webphone.TwoLinesAgentHangupv2withoutDependencies" >
+                <methods>
+                    <include name = "ssoLoginChrome"/>
+                    <include name = "callOnFirstLine"/>
+                    <include name = "callOnSecondLine"/>
+                    <include name = "agentHangupLine1"/>
+                    <include name = "agentHangupLine2"/>
+                    <include name = "setResultCodeAndCheckAvailableStatus"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="TwoLinesClientHangupv2withoutDependencies" preserve-order="true">
+        <classes>
+            <class name="webphone.TwoLinesClientHangupv2withoutDependencies">
+                <methods>
+                    <include name = "callOnFirstLine"/>
+                    <include name = "callOnSecondLine"/>
+                    <include name = "clientHangupLine1"/>
+                    <include name = "clientHangupLine2"/>
+                    <include name = "setResultCodeAndCheckAvailableStatus"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

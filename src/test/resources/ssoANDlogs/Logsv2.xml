@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="webchatp">
+    <test name="whole script">
+        <classes>
+            <class name="ssoANDlogs.Logsv2">
+                <methods>
+<!--priority = 1-->
+                   <include name = "ssoLoginChrome"/>
+                    <include name = "sendFeedback"/>
+                    <include name = "getChromeLogs"/>
+                    <include name = "teardown"/>
+                    <include name = "getSystemLogs"/>
+                    <include name = "moveLogs"/>
+                    <include name = "teardown2"/>
+                <!--    <include name = "teardown"/>-->
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

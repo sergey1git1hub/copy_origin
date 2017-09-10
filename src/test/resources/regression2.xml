@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="regression">
+    <test name="TwoLinesAgentHangupv2">
+        <classes>
+            <class name="webphone.TwoLinesAgentHangupv2">
+                <methods>
+                    <include name = "ssoLoginChrome"/>
+                    <include name = "callOnFirstLine"/>
+                    <include name = "callOnSecondLine"/>
+                    <include name = "agentHangupLine1()"/>
+                    <include name = "agentHangupLine2()"/>
+                    <include name = "setResultCodeAndCheckAvailableStatus"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="TwoLinesClientHangupv2">
+        <classes>
+            <class name="webphone.TwoLinesClientHangupv2">
+                <methods>
+                    <include name="ssoLoginChrome"/>
+                    <include name="callOnFirstLine"/>
+                    <include name="callOnSecondLine"/>
+                    <include name="agentHangupLine1"/>
+                    <include name="agentHangupLine2"/>
+                    <include name="setResultCodeAndCheckAvailableStatus"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PDPreviewFreeCallIE">
+        <classes>
+            <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeCallIE">
+                <methods>
+                    <include name = "ssoLoginChrome"/>
+                    <include name = "changeStatusToAvailable"/>
+                    <include name = "switchToADTab"/>
+                    <include name = "runSQLQuery"/>
+                    <include name = "agentAcceptCall"/>
+                    <include name = "answerCallOnClientSide"/>
+                    <include name = "saveCRMCard"/>
+                    <include name = "checkAvailableStatus"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PDPreviewFreeAUXsubtests">
+        <classes>
+            <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeAUXsubtests">
+                <methods>
+                    <include name = "ssoLoginChrome"/>
+                    <include name = "changeStatusToAUX"/>
+                    <include name = "switchToADTab"/>
+                    <include name = "runSQLQuery"/>
+                    <include name = "noIncomingCall"/>
+                    <include name = "changeStatusToAvailable"/>
+                    <include name = "receiveIncomingCall"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="whole script">
+        <classes>
+            <class name="webphoneANDpowerdialer.PDProgressiveReleasedAUXagentHangup">
+                <methods>
+                    <include name = "ssoLoginChrome"/>
+                    <include name = "changeStatusToAUX"/>
+                    <include name = "runSQLQuery"/>
+                    <include name = "waitForCallOnClientSide"/>
+                    <include name = "noIncomingCallToAgent"/>
+                    <include name = "changeStatusToAvailable"/>
+                    <include name = "waitForCallOnClientSide2"/>
+                    <include name = "receiveIncomingCallToAgent"/>
+                    <include name = "agentHangup"/>
+                    <include name = "setResultCodeAndCheckAvailableStatus"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

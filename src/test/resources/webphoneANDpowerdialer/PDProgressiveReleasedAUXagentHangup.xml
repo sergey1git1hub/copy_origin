@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="webchatp">
+    <test name="whole script">
+        <classes>
+            <class name="webphoneANDpowerdialer.PDProgressiveReleasedAUXagentHangup">
+                <methods>
+                  <include name = "ssoLoginChrome"/>
+                  <include name = "changeStatusToAUX"/>
+                  <include name = "runSQLQuery"/>
+                  <include name = "waitForCallOnClientSide"/>
+                  <include name = "noIncomingCallToAgent"/>
+                  <include name = "changeStatusToAvailable"/>
+                  <include name = "waitForCallOnClientSide2"/>
+                  <include name = "receiveIncomingCallToAgent"/>
+                  <include name = "agentHangup"/>
+                  <include name = "setResultCodeAndCheckAvailableStatus"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
