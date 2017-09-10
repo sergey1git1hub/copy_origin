@@ -147,25 +147,25 @@ public class TwoLinesAgentHangupv2Slow {
     public static void agentHangupLine1() throws InterruptedException, FindFailed {
         line1 = agentChrome.findElement(By.cssSelector("#btn_line_1"));
         line1.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         WebElement button_Hold = agentChrome.findElement(By.cssSelector("#btn_hold"));
         button_Hold.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         button_Hangup = agentChrome.findElement(By.cssSelector("#btn_hangup"));
         button_Hangup.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
     }
 
     @Test(dependsOnMethods = "agentHangupLine1")
     public static void agentHangupLine2() throws InterruptedException, FindFailed {
         line2 = agentChrome.findElement(By.cssSelector("#btn_line_2"));
         line2.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         WebDriverWait waitForButton_Hangup = new WebDriverWait(agentChrome, 5);
         waitForButton_Hangup.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#btn_hangup")));
         button_Hangup = agentChrome.findElement(By.cssSelector("#btn_hangup"));
         button_Hangup.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
     }
     @Test(dependsOnMethods = "agentHangupLine2")
     public static void setResultCodeAndCheckAvailableStatus() throws InterruptedException, FindFailed {

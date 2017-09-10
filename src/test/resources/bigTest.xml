@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
+<!--DO NOT RUN-->
 <suite name="bigTest" preserve-order="true">
     <test name="TwoLinesAgentHangupv2" preserve-order="true">
         <classes>
             <class name="bigTest.BigTest">
                 <methods>
                     <include name = "ssoLoginChrome"/>
-<!--                    <include name = "callOnFirstLine"/>
+                    <include name = "callOnFirstLine"/>
                     <include name = "callOnSecondLine"/>
                     <include name = "agentHangupLine1()"/>
                     <include name = "agentHangupLine2()"/>
-                    <include name = "setResultCodeAndCheckAvailableStatus"/>-->
+                    <include name = "setResultCodeAndCheckAvailableStatus"/>
                 </methods>
             </class>
         </classes>
@@ -24,13 +25,13 @@
                     <include name="callOnSecondLine"/>
                     <include name="clientHangupLine1()"/>
                    <include name="clientHangupLine2()"/>
-                   <!-- <include name="setResultCodeAndCheckAvailableStatus"/>-->
+                    <include name="setResultCodeAndCheckAvailableStatus"/>
                 </methods>
             </class>
         </classes>
     </test>
 
- <!--   <test name="PDPreviewFreeCallIE">
+    <test name="PDPreviewFreeCallIE">
         <classes>
             <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeCallIE">
                 <methods>
@@ -81,5 +82,4 @@
             </class>
         </classes>
     </test>
--->
 </suite>

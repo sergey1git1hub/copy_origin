@@ -23,8 +23,8 @@
                     <include name="ssoLoginChrome"/>
                     <include name="callOnFirstLine"/>
                     <include name="callOnSecondLine"/>
-                    <include name="agentHangupLine1"/>
-                    <include name="agentHangupLine2"/>
+                    <include name="clientHangupLine1"/>
+                    <include name="clientHangupLine2"/>
                     <include name="setResultCodeAndCheckAvailableStatus"/>
                 </methods>
             </class>

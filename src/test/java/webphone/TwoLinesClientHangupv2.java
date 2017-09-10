@@ -153,7 +153,7 @@ public class TwoLinesClientHangupv2 {
        // Thread.sleep(1000);
     }
 
-    @Test(dependsOnMethods = "agentHangupLine1")
+    @Test(dependsOnMethods = "clientHangupLine1")
     public static void clientHangupLine2() throws FindFailed, InterruptedException {
         org.sikuli.script.Pattern line_3CXLine1 = new org.sikuli.script.Pattern("C:\\SikuliImages\\line_3CXLine1.png");
         screen.wait(line_3CXLine1, 10);
@@ -167,7 +167,7 @@ public class TwoLinesClientHangupv2 {
        // Thread.sleep(1000);
     }
 
-    @Test(dependsOnMethods = "agentHangupLine2")
+    @Test(dependsOnMethods = "clientHangupLine2")
     public static void setResultCodeAndCheckAvailableStatus() throws InterruptedException {
         WebDriverWait waitForResultCode = new WebDriverWait(agentChrome, 5);
         waitForResultCode.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[text()='Удачно']")));
