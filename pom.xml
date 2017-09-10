@@ -101,7 +101,7 @@
                 <version>2.20</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src\test\resources\bigTestCFWrapper.xml</suiteXmlFile>
+                        <suiteXmlFile>src\test\resources\regression2.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
