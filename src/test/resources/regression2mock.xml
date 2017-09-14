@@ -16,7 +16,7 @@
              </class>
          </classes>
      </test>
-     <test name="TwoLinesClientHangupv2">
+    <!-- <test name="TwoLinesClientHangupv2">
          <classes>
              <class name="webphone.TwoLinesClientHangupv2mock">
                  <methods>
@@ -81,6 +81,6 @@
                 </methods>
             </class>
         </classes>
-    </test>
+    </test>-->
 
 </suite>
