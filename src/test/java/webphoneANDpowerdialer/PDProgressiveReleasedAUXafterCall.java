@@ -99,6 +99,7 @@ public class PDProgressiveReleasedAUXafterCall {
         Statement stmt = con.createStatement();
         stmt.execute(query);
     }
+
     @Test()
     public void loginToPD() throws InterruptedException {
         agentPD = new ChromeDriver();

@@ -2,6 +2,7 @@ package webphone;
 
 import methods.MethodsTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,7 +18,7 @@ import static data.Data.agentChrome;
 import static methods.Methods.driver;
 import static org.testng.Assert.assertTrue;
 
-public class TwoLinesAgentHangupv2 {
+public class TwoLinesAgentHangupv2mock {
     static App cxphone;
     static Screen screen;
     static org.sikuli.script.Pattern button_3CXAcceptCall;
@@ -33,14 +34,15 @@ public class TwoLinesAgentHangupv2 {
     static WebElement button_Hangup;
 
     @Test
-    public static void ssoLoginChrome(){}
-
-    @Test
-    public static void chromeLogin() throws InterruptedException {
-        MethodsTest.chromeLogin();
+    public static void ssoLoginChrome() {
     }
 
-    @Test(dependsOnMethods = "chromeLogin")
+    @Test
+    public static void IELogin() throws InterruptedException {
+        MethodsTest.IELogin();
+    }
+
+    @Test(dependsOnMethods = "IELogin")
     public static void callOnFirstLine() throws InterruptedException, FindFailed {
         agentChrome = driver;
         cxphone = App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
@@ -68,7 +70,15 @@ public class TwoLinesAgentHangupv2 {
     @Test(dependsOnMethods = "callOnFirstLine")
     public static void callOnSecondLine() throws InterruptedException, FindFailed {
         line2 = agentChrome.findElement(By.cssSelector("#btn_line_2"));
-        line2.click();
+        /*line2.click();*/
+        try {
+            if (driver instanceof JavascriptExecutor) {
+                ((JavascriptExecutor) driver)
+                        .executeScript("wp_common.wp_ChangeLine(2); log(event);");
+            }
+        } catch(Exception e){}
+        WebDriverWait waitForPhoneNumber = new WebDriverWait(agentChrome, 5);
+        waitForPhoneNumber.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#PhoneNumber")));
         phoneNumberField = agentChrome.findElement(By.cssSelector("#PhoneNumber"));
         phoneNumberField.sendKeys("94948");
         Thread.sleep(1000);
@@ -102,7 +112,13 @@ public class TwoLinesAgentHangupv2 {
     @Test(dependsOnMethods = "callOnSecondLine")
     public static void agentHangupLine1() throws InterruptedException, FindFailed {
         line1 = agentChrome.findElement(By.cssSelector("#btn_line_1"));
-        line1.click();
+        /*line1.click();*/
+        try {
+            if (driver instanceof JavascriptExecutor) {
+                ((JavascriptExecutor) driver)
+                        .executeScript("wp_common.wp_ChangeLine(1); log(event);");
+            }
+        } catch(Exception e){}
         Thread.sleep(1000);
         WebElement button_Hold = agentChrome.findElement(By.cssSelector("#btn_hold"));
         button_Hold.click();
@@ -115,7 +131,13 @@ public class TwoLinesAgentHangupv2 {
     @Test(dependsOnMethods = "agentHangupLine1")
     public static void agentHangupLine2() throws InterruptedException, FindFailed {
         line2 = agentChrome.findElement(By.cssSelector("#btn_line_2"));
-        line2.click();
+        //line2.click();
+        try {
+            if (driver instanceof JavascriptExecutor) {
+                ((JavascriptExecutor) driver)
+                        .executeScript("wp_common.wp_ChangeLine(2); log(event);");
+            }
+        } catch(Exception e){}
         Thread.sleep(1000);
         WebDriverWait waitForButton_Hangup = new WebDriverWait(agentChrome, 5);
         waitForButton_Hangup.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#btn_hangup")));
@@ -126,14 +148,14 @@ public class TwoLinesAgentHangupv2 {
 
     @Test(dependsOnMethods = "agentHangupLine2")
     public static void setResultCodeAndCheckAvailableStatus() throws InterruptedException, FindFailed {
-        WebDriverWait waitForResultCode = new WebDriverWait(agentChrome, 5);
+        /*WebDriverWait waitForResultCode = new WebDriverWait(agentChrome, 5);
         waitForResultCode.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[text()='Удачно']")));
         WebElement resultCode = agentChrome.findElement(By.xpath("//td[text()='Удачно']"));
         resultCode.click();
         Thread.sleep(1000);
         WebElement button_Save = agentChrome.findElement(By.cssSelector("#btn_rslt > span.ui-button-text.ui-c"));
         button_Save.click();
-        Thread.sleep(1000);
+        Thread.sleep(1000);*/
         WebDriverWait waitForAvailableStatus = new WebDriverWait(agentChrome, 10);
         waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*|.*\\bFinished\\b.*|.*\\bWrapup\\b.*")));
@@ -141,7 +163,13 @@ public class TwoLinesAgentHangupv2 {
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*")));*/
         Thread.sleep(2000);
         line1 = agentChrome.findElement(By.cssSelector("#btn_line_1"));
-        line1.click();
+        /*line1.click();*/
+        try {
+            if (driver instanceof JavascriptExecutor) {
+                ((JavascriptExecutor) driver)
+                        .executeScript("wp_common.wp_ChangeLine(1); log(event);");
+            }
+        } catch(Exception e){}
     }
 
     @AfterClass

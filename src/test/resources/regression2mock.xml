@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="regression">
-    <test name="TwoLinesAgentHangupv2">
-        <classes>
-            <class name="webphone.TwoLinesAgentHangupv2">
-                <methods>
-                    <include name = "chromeLogin"/>
-                    <include name = "callOnFirstLine"/>
-                    <include name = "callOnSecondLine"/>
-                    <include name = "agentHangupLine1()"/>
-                    <include name = "agentHangupLine2()"/>
-                    <include name = "setResultCodeAndCheckAvailableStatus"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-   <!-- <test name="TwoLinesClientHangupv2">
-        <classes>
-            <class name="webphone.TwoLinesClientHangupv2">
-                <methods>
-                    <include name="ssoLoginChrome"/>
-                    <include name="callOnFirstLine"/>
-                    <include name="callOnSecondLine"/>
-                    <include name="clientHangupLine1"/>
-                    <include name="clientHangupLine2"/>
-                    <include name="setResultCodeAndCheckAvailableStatus"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+<suite name="regression2">
+     <test name="TwoLinesAgentHangupv2">
+         <classes>
+             <class name="webphone.TwoLinesAgentHangupv2mock">
+                 <methods>
+                     <include name = "IELogin"/>
+                     <include name = "callOnFirstLine"/>
+                     <include name = "callOnSecondLine"/>
+                     <include name = "agentHangupLine1()"/>
+                     <include name = "agentHangupLine2()"/>
+                     <include name = "setResultCodeAndCheckAvailableStatus"/>
+                 </methods>
+             </class>
+         </classes>
+     </test>
+     <test name="TwoLinesClientHangupv2">
+         <classes>
+             <class name="webphone.TwoLinesClientHangupv2mock">
+                 <methods>
+                     <include name="IELogin"/>
+                     <include name="callOnFirstLine"/>
+                     <include name="callOnSecondLine"/>
+                     <include name="clientHangupLine1"/>
+                     <include name="clientHangupLine2"/>
+                     <include name="setResultCodeAndCheckAvailableStatus"/>
+                 </methods>
+             </class>
+         </classes>
+     </test>
 
-    <test name="PDPreviewFreeCallIE">
+   <test name="PDPreviewFreeCallIE">
         <classes>
-            <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeCallIE">
+            <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeCallIEmock">
                 <methods>
-                    <include name = "ssoLoginChrome"/>
+                    <include name = "IELoginAD"/>
                     <include name = "changeStatusToAvailable"/>
                     <include name = "switchToADTab"/>
                     <include name = "runSQLQuery"/>
@@ -50,9 +50,9 @@
 
     <test name="PDPreviewFreeAUXsubtests">
         <classes>
-            <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeAUXsubtests">
+            <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeAUXsubtestsmock">
                 <methods>
-                    <include name = "ssoLoginChrome"/>
+                    <include name = "IELoginAD"/>
                     <include name = "changeStatusToAUX"/>
                     <include name = "switchToADTab"/>
                     <include name = "runSQLQuery"/>
@@ -66,9 +66,9 @@
 
     <test name="whole script">
         <classes>
-            <class name="webphoneANDpowerdialer.PDProgressiveReleasedAUXagentHangup">
+            <class name="webphoneANDpowerdialer.PDProgressiveReleasedAUXagentHangupmock">
                 <methods>
-                    <include name = "ssoLoginChrome"/>
+                    <include name = "IELogin"/>
                     <include name = "changeStatusToAUX"/>
                     <include name = "runSQLQuery"/>
                     <include name = "waitForCallOnClientSide"/>
@@ -81,6 +81,6 @@
                 </methods>
             </class>
         </classes>
-    </test>-->
+    </test>
 
 </suite>
