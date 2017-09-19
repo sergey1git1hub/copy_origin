@@ -109,19 +109,55 @@ public class PDPreviewFreeCallIEmock {
         System.out.println("Chrome login: 1.");
     }
 */
-    @Test(dependsOnMethods = "IELoginAD")
+ /*   @Test(dependsOnMethods = "IELoginAD")
     public static void changeStatusToAvailable() {
         agentChrome = driver;
         WebElement currentStatus = agentChrome.findElement(cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"));
         currentStatus.click();
         WebElement availableStatus = agentChrome.findElement(By.xpath(
-                "//*[contains(text(),'Available')]"));
+                "/*//*[contains(text(),'Available')]"));
         availableStatus.click();
         WebDriverWait waitForAvailableStatus = new WebDriverWait(agentChrome, 15);
         waitForAvailableStatus.until(ExpectedConditions.textMatches(cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*")));
+    }*/
+
+    @Test(dependsOnMethods = "IELoginAD")
+    public static void changeStatusToAvailable() throws InterruptedException, FindFailed {
+     /*   WebElement currentStatus = agentChrome.findElement(By.cssSelector(
+                "#statusButton > span.ui-button-text.ui-c"));
+        Thread.sleep(200);
+        currentStatus.click();
+
+        String keysPressed =  Keys.chord(Keys.CONTROL, Keys.ENTER);*/
+       /* currentStatus.sendKeys(keysPressed) ;*/
+
+       /* WebElement availableStatus = agentChrome.findElement(By.xpath(
+                "/*//*[contains(text(),'Available')]"));*/
+        /*availableStatus.click();*/
+       /* availableStatus.sendKeys(keysPressed);*/
+   /*     try {
+            if (driver instanceof JavascriptExecutor) {
+                ((JavascriptExecutor) driver)
+                        .executeScript("checkSelectedStatus();PrimeFaces.ab({source:'statusButton'});return false;");
+            }
+        } catch(Exception e){}*/
+        agentChrome = driver;
+        Screen screen = new Screen();
+        org.sikuli.script.Pattern currentStatus = new org.sikuli.script.Pattern("C:\\SikuliImages\\currentStatus.png");
+        screen.wait(currentStatus, 10);
+        screen.click(currentStatus);
+        Thread.sleep(1000);
+        org.sikuli.script.Pattern availableStatus = new org.sikuli.script.Pattern("C:\\SikuliImages\\availableStatus.png");
+        screen.wait(availableStatus, 10);
+        screen.click(availableStatus);
+        Thread.sleep(3000);
+        WebDriverWait waitForAvailableStatus = new WebDriverWait(agentChrome, 5);
+        waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
+                "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*")));
     }
+
 
     @Test(dependsOnMethods = "changeStatusToAvailable")
     public static void switchToADTab() throws FindFailed {
@@ -274,7 +310,7 @@ public class PDPreviewFreeCallIEmock {
 
     @Test(dependsOnMethods = "saveCRMCard")
     public static void checkAvailableStatus() throws InterruptedException {
-        WebDriverWait waitForAvailableStatus = new WebDriverWait(agentChrome, 5);
+        WebDriverWait waitForAvailableStatus = new WebDriverWait(agentChrome, 7);
         waitForAvailableStatus.until(ExpectedConditions.textMatches(cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*")));
 
