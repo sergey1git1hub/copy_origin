@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="regression2">
-   <!--  <test name="TwoLinesAgentHangupv2">
+     <test name="TwoLinesAgentHangupv2">
          <classes>
              <class name="webphone.TwoLinesAgentHangupv2mock">
                  <methods>
@@ -30,8 +30,7 @@
              </class>
        </classes>
      </test>
--->
-   <test name="PDPreviewFreeCallIE">
+<!--   <test name="PDPreviewFreeCallIE">
      <classes>
             <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeCallIEmock">
                 <methods>
@@ -46,7 +45,7 @@
                 </methods>
             </class>
       </classes>
-    </test>
+    </test>-->
 
    <!-- <test name="PDPreviewFreeAUXsubtests">
      <classes>
