@@ -48,7 +48,7 @@
       </classes>
     </test>
 
-    <test name="PDPreviewFreeAUXsubtests">
+   <!-- <test name="PDPreviewFreeAUXsubtests">
      <classes>
             <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeAUXsubtestsmock">
                 <methods>
@@ -80,6 +80,6 @@
                 </methods>
             </class>
       </classes>
-    </test>
+    </test>-->
 
 </suite>
