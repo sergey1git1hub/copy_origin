@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="regression">
+    <listeners>
+        <listener class-name="rerunTests.classes2copy.OnTestFailure" />
+    </listeners>
+    <test name="whole script">
+        <classes>
+            <class name="rerunTests.classes2copy.RetryClassTest">
+                <methods>
+                    <include name = "test1"/>
+                    <include name = "test2"/>
+                    <include name = "test3"/>
+                </methods>
+
+                <!--Generate custom test results depending on temporary suite execution results.-->
+                <!--Display test results of temporary suite instead of real suite.-->
+            </class>
+        </classes>
+    </test>
+
+</suite>

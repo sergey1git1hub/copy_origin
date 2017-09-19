@@ -16,8 +16,8 @@
              </class>
          </classes>
      </test>
-    <!-- <test name="TwoLinesClientHangupv2">
-         <classes>
+     <test name="TwoLinesClientHangupv2">
+      <classes>
              <class name="webphone.TwoLinesClientHangupv2mock">
                  <methods>
                      <include name="IELogin"/>
@@ -28,11 +28,11 @@
                      <include name="setResultCodeAndCheckAvailableStatus"/>
                  </methods>
              </class>
-         </classes>
+       </classes>
      </test>
 
    <test name="PDPreviewFreeCallIE">
-        <classes>
+     <classes>
             <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeCallIEmock">
                 <methods>
                     <include name = "IELoginAD"/>
@@ -45,11 +45,11 @@
                     <include name = "checkAvailableStatus"/>
                 </methods>
             </class>
-        </classes>
+      </classes>
     </test>
 
     <test name="PDPreviewFreeAUXsubtests">
-        <classes>
+     <classes>
             <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeAUXsubtestsmock">
                 <methods>
                     <include name = "IELoginAD"/>
@@ -61,11 +61,10 @@
                     <include name = "receiveIncomingCall"/>
                 </methods>
             </class>
-        </classes>
+      </classes>
     </test>
-
     <test name="whole script">
-        <classes>
+     <classes>
             <class name="webphoneANDpowerdialer.PDProgressiveReleasedAUXagentHangupmock">
                 <methods>
                     <include name = "IELogin"/>
@@ -80,7 +79,7 @@
                     <include name = "setResultCodeAndCheckAvailableStatus"/>
                 </methods>
             </class>
-        </classes>
-    </test>-->
+      </classes>
+    </test>
 
 </suite>

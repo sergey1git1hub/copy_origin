@@ -246,9 +246,12 @@ public class PDProgressiveReleasedAUXagentHangupmock {
 
     @Test(dependsOnMethods = "receiveIncomingCallToAgent")
     public static void agentHangup() throws InterruptedException, FindFailed {
-
-        button_Hangup = agentChrome.findElement(By.cssSelector("#btn_hangup"));
-        button_Hangup.click();
+        Screen screen = new Screen();
+        org.sikuli.script.Pattern button_Hangup = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Hangup.png");
+        screen.wait(button_Hangup, 10);
+        screen.click(button_Hangup);
+        /*button_Hangup = agentChrome.findElement(By.cssSelector("#btn_hangup"));
+        button_Hangup.click();*/
         Thread.sleep(1000);
     }
 

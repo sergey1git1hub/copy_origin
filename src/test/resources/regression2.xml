@@ -2,8 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="regression">
-    <test name="TwoLinesAgentHangupv2">
-        <classes>
+    <!--<test name="TwoLinesAgentHangupv2">
+     classes2sses>
             <class name="webphone.TwoLinesAgentHangupv2">
                 <methods>
                     <include name = "chromeLogin"/>
@@ -14,10 +14,10 @@
                     <include name = "setResultCodeAndCheckAvailableStatus"/>
                 </methods>
             </class>
-        </classes>
+      classes2sses>
     </test>
-   <!-- <test name="TwoLinesClientHangupv2">
-        <classes>
+    <test name="TwoLinesClientHangupv2">
+     classes2sses>
             <class name="webphone.TwoLinesClientHangupv2">
                 <methods>
                     <include name="ssoLoginChrome"/>
@@ -28,11 +28,11 @@
                     <include name="setResultCodeAndCheckAvailableStatus"/>
                 </methods>
             </class>
-        </classes>
+      classes2sses>
     </test>
 
     <test name="PDPreviewFreeCallIE">
-        <classes>
+     classes2sses>
             <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeCallIE">
                 <methods>
                     <include name = "ssoLoginChrome"/>
@@ -45,11 +45,11 @@
                     <include name = "checkAvailableStatus"/>
                 </methods>
             </class>
-        </classes>
+      classes2sses>
     </test>
 
     <test name="PDPreviewFreeAUXsubtests">
-        <classes>
+     classes2sses>
             <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeAUXsubtests">
                 <methods>
                     <include name = "ssoLoginChrome"/>
@@ -61,8 +61,8 @@
                     <include name = "receiveIncomingCall"/>
                 </methods>
             </class>
-        </classes>
-    </test>
+      classes2sses>
+    </test>-->
 
     <test name="whole script">
         <classes>
@@ -81,6 +81,6 @@
                 </methods>
             </class>
         </classes>
-    </test>-->
+    </test>
 
 </suite>

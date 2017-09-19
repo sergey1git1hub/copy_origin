@@ -21,7 +21,7 @@ import static helpMethods.HelpMethods.handleLogoutWindow;
         login
         checkStatus
 
-        data stored as global variables in test classes
+        data stored as global variables in test classes2copy
 static
 data
 
@@ -30,10 +30,10 @@ login(String method, String username, String password)
 checkStatus(String status)
 driver is  accessible from Methods class
 declare, but not initialize
-initialize variables from test classes before method calls
+initialize variables from test classes2copy before method calls
 \!test_group5_5220
 
-ability to provide default variables or override these variables in test classes
+ability to provide default variables or override these variables in test classes2copy
 */
 
 public class Methods {

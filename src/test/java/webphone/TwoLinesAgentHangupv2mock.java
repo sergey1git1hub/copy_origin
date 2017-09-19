@@ -44,16 +44,31 @@ public class TwoLinesAgentHangupv2mock {
 
     @Test(dependsOnMethods = "IELogin")
     public static void callOnFirstLine() throws InterruptedException, FindFailed {
-        agentChrome = driver;
+       /* agentChrome = driver;
         cxphone = App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
         screen = new Screen();
         button_3CXAcceptCall = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_3CXAcceptCall.png");
         phoneNumberField = agentChrome.findElement(By.cssSelector("#PhoneNumber"));
         phoneNumberField.sendKeys("94949");
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         button_Call = agentChrome.findElement(By.cssSelector("#btn_call"));
         button_Call.click();
         Thread.sleep(1000);
+        answerCallOnClientSideLine1();*/
+
+        agentChrome = driver;
+        cxphone = App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
+        screen = new Screen();
+        button_3CXAcceptCall = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_3CXAcceptCall.png");
+        Thread.sleep(5000);
+        phoneNumberField = agentChrome.findElement(By.cssSelector("#PhoneNumber"));
+        phoneNumberField.sendKeys("94949");
+        // Thread.sleep(1000);
+        button_Call = agentChrome.findElement(By.cssSelector("#btn_call"));
+        WebDriverWait waitForCallButton = new WebDriverWait(agentChrome, 10);
+        waitForCallButton.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#btn_call")));
+        button_Call.click();
+        // Thread.sleep(1000);
         answerCallOnClientSideLine1();
         screen.wait(button_3CXAcceptCall, 10);
         screen.click(button_3CXAcceptCall);
@@ -124,7 +139,13 @@ public class TwoLinesAgentHangupv2mock {
         button_Hold.click();
         Thread.sleep(1000);
         button_Hangup = agentChrome.findElement(By.cssSelector("#btn_hangup"));
-        button_Hangup.click();
+        WebDriverWait waitForButton_Hangup = new WebDriverWait(agentChrome, 5);
+        waitForButton_Hangup.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#btn_hangup")));
+        /*button_Hangup.click();*/
+        Screen screen = new Screen();
+        org.sikuli.script.Pattern button_Hangup = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Hangup.png");
+        screen.wait(button_Hangup, 10);
+        screen.click(button_Hangup);
         Thread.sleep(1000);
     }
 
@@ -142,7 +163,11 @@ public class TwoLinesAgentHangupv2mock {
         WebDriverWait waitForButton_Hangup = new WebDriverWait(agentChrome, 5);
         waitForButton_Hangup.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#btn_hangup")));
         button_Hangup = agentChrome.findElement(By.cssSelector("#btn_hangup"));
-        button_Hangup.click();
+        /*button_Hangup.click();*/
+        Screen screen = new Screen();
+        org.sikuli.script.Pattern button_Hangup = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Hangup.png");
+        screen.wait(button_Hangup, 10);
+        screen.click(button_Hangup);
         Thread.sleep(1000);
     }
 
