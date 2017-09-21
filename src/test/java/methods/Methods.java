@@ -14,6 +14,8 @@ import org.sikuli.script.FindFailed;
 import org.sikuli.script.Screen;
 import org.testng.Assert;
 
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.regex.Pattern;
 
 import static helpMethods.HelpMethods.handleLogoutWindow;
@@ -51,7 +53,7 @@ public class Methods {
     public static org.sikuli.script.Pattern button_Discard;
     //static String status;
 
-    public static void loadPage() {
+    public static void loadPage() throws InterruptedException {
 
         if (browser == "chrome") {
             System.setProperty("webdriver.chrome.driver", "C:/chromedriver/chromedriver.exe");
@@ -72,30 +74,51 @@ public class Methods {
             ieCapabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
                     true);
             driver = new InternetExplorerDriver(ieCapabilities);
-            driver.get(url);
-            try {
-                screen = new Screen();
-                org.sikuli.script.Pattern checkbox_doNotAskAgain = new org.sikuli.script.Pattern("C:\\SikuliImages\\checkbox_doNotAskAgain.png");
-                screen.wait(checkbox_doNotAskAgain, 5);
-                screen.click(checkbox_doNotAskAgain);
+            // Set the page load timeout to 10 seconds.
 
-                org.sikuli.script.Pattern option_updateJavaLater = new org.sikuli.script.Pattern("C:\\SikuliImages\\option_updateJavaLater.png");
-                screen.wait(option_updateJavaLater, 2);
-                screen.click(option_updateJavaLater);
-            } catch (FindFailed findFailed) {
-                findFailed.printStackTrace();
-            }
-            try{
-                org.sikuli.script.Pattern checkbox_acceptTheRisk = new org.sikuli.script.Pattern("C:\\SikuliImages\\checkbox_acceptTheRisk.png");
-                screen.wait(checkbox_acceptTheRisk, 10);
-                screen.click(checkbox_acceptTheRisk);
+            Thread thread1 = new Thread() {
+                public void run() {
+                    driver.get(url);
+                }
+            };
 
-                org.sikuli.script.Pattern button_Run = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Run.png");
-                screen.wait(button_Run, 2);
-                screen.click(button_Run);
-            } catch (FindFailed findFailed) {
-                findFailed.printStackTrace();
-            }
+            Thread thread2 = new Thread() {
+                public void run() {
+                    try {
+                        screen = new Screen();
+                        org.sikuli.script.Pattern checkbox_doNotAskAgain = new org.sikuli.script.Pattern("C:\\SikuliImages\\checkbox_doNotAskAgain.png");
+                        screen.wait(checkbox_doNotAskAgain, 5);
+                        screen.click(checkbox_doNotAskAgain);
+
+                        org.sikuli.script.Pattern option_updateJavaLater = new org.sikuli.script.Pattern("C:\\SikuliImages\\option_updateJavaLater.png");
+                        screen.wait(option_updateJavaLater, 2);
+                        screen.click(option_updateJavaLater);
+                    } catch (FindFailed findFailed) {
+                        findFailed.printStackTrace();
+                    }
+                    try{
+                        org.sikuli.script.Pattern checkbox_acceptTheRisk = new org.sikuli.script.Pattern("C:\\SikuliImages\\checkbox_acceptTheRisk.png");
+                        screen.wait(checkbox_acceptTheRisk, 10);
+                        screen.click(checkbox_acceptTheRisk);
+
+                        org.sikuli.script.Pattern button_Run = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Run.png");
+                        screen.wait(button_Run, 2);
+                        screen.click(button_Run);
+                    } catch (FindFailed findFailed) {
+                        findFailed.printStackTrace();
+                    }
+                }
+            };
+
+// Start the downloads.
+            thread1.start();
+            thread2.start();
+
+// Wait for them both to finish
+            thread1.join();
+            thread2.join();
+
+
 
             WebDriverWait waitForTitle = new WebDriverWait(driver, 10);
             waitForTitle.until(ExpectedConditions.titleIs("gbwebphone"));
