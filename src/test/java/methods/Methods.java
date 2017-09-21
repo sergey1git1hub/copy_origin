@@ -64,15 +64,39 @@ public class Methods {
             System.setProperty("webdriver.ie.driver", "C:/iedriver32/IEDriverServer.exe");
             DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer();
 
-            ieCapabilities.setCapability("nativeEvents", false);
+            /*ieCapabilities.setCapability("nativeEvents", false);
             ieCapabilities.setCapability("unexpectedAlertBehaviour", "accept");
             ieCapabilities.setCapability("ignoreProtectedModeSettings", true);
             ieCapabilities.setCapability("disable-popup-blocking", true);
-            ieCapabilities.setCapability("enablePersistentHover", true);
+            ieCapabilities.setCapability("enablePersistentHover", true);*/
             ieCapabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
                     true);
             driver = new InternetExplorerDriver(ieCapabilities);
             driver.get(url);
+            try {
+                screen = new Screen();
+                org.sikuli.script.Pattern checkbox_doNotAskAgain = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
+                screen.wait(checkbox_doNotAskAgain, 2);
+                screen.click(checkbox_doNotAskAgain);
+
+                org.sikuli.script.Pattern option_updateJavaLater = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
+                screen.wait(option_updateJavaLater, 2);
+                screen.click(option_updateJavaLater);
+            } catch (FindFailed findFailed) {
+                findFailed.printStackTrace();
+            }
+            try{
+                org.sikuli.script.Pattern checkbox_acceptTheRisk = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
+                screen.wait(checkbox_acceptTheRisk, 2);
+                screen.click(checkbox_acceptTheRisk);
+
+                org.sikuli.script.Pattern button_Run = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
+                screen.wait(button_Run, 2);
+                screen.click(button_Run);
+            } catch (FindFailed findFailed) {
+                findFailed.printStackTrace();
+            }
+
             WebDriverWait waitForTitle = new WebDriverWait(driver, 10);
             waitForTitle.until(ExpectedConditions.titleIs("gbwebphone"));
             Assert.assertEquals(driver.getTitle(), "gbwebphone");
@@ -85,26 +109,7 @@ public class Methods {
 
     public static void login() throws InterruptedException {
 
-        try {
-            screen = new Screen();
-            org.sikuli.script.Pattern checkbox_doNotAskAgain = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
-            screen.wait(checkbox_doNotAskAgain, 2);
-            screen.click(checkbox_doNotAskAgain);
 
-            org.sikuli.script.Pattern option_updateJavaLater = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
-            screen.wait(option_updateJavaLater, 2);
-            screen.click(option_updateJavaLater);
-
-            org.sikuli.script.Pattern checkbox_acceptTheRisk = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
-            screen.wait(checkbox_acceptTheRisk, 2);
-            screen.click(checkbox_acceptTheRisk);
-
-            org.sikuli.script.Pattern button_Run = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
-            screen.wait(button_Run, 2);
-            screen.click(button_Run);
-        } catch (FindFailed findFailed) {
-            findFailed.printStackTrace();
-        }
         if (method == "sso") {
             WebElement button_SSO = driver.findElement(By.cssSelector("#ssoButton > span"));
             String winHandleBefore = driver.getWindowHandle();
