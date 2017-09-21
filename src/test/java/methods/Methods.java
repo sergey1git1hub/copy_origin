@@ -75,22 +75,22 @@ public class Methods {
             driver.get(url);
             try {
                 screen = new Screen();
-                org.sikuli.script.Pattern checkbox_doNotAskAgain = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
+                org.sikuli.script.Pattern checkbox_doNotAskAgain = new org.sikuli.script.Pattern("C:\\SikuliImages\\checkbox_doNotAskAgain.png");
                 screen.wait(checkbox_doNotAskAgain, 2);
                 screen.click(checkbox_doNotAskAgain);
 
-                org.sikuli.script.Pattern option_updateJavaLater = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
+                org.sikuli.script.Pattern option_updateJavaLater = new org.sikuli.script.Pattern("C:\\SikuliImages\\option_updateJavaLater.png");
                 screen.wait(option_updateJavaLater, 2);
                 screen.click(option_updateJavaLater);
             } catch (FindFailed findFailed) {
                 findFailed.printStackTrace();
             }
             try{
-                org.sikuli.script.Pattern checkbox_acceptTheRisk = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
+                org.sikuli.script.Pattern checkbox_acceptTheRisk = new org.sikuli.script.Pattern("C:\\SikuliImages\\checkbox_acceptTheRisk.png");
                 screen.wait(checkbox_acceptTheRisk, 2);
                 screen.click(checkbox_acceptTheRisk);
 
-                org.sikuli.script.Pattern button_Run = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
+                org.sikuli.script.Pattern button_Run = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Run.png");
                 screen.wait(button_Run, 2);
                 screen.click(button_Run);
             } catch (FindFailed findFailed) {
