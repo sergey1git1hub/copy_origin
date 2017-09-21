@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [TmpSuite]">
+  <test name="TmpTest(failed)">
+    <classes>
+      <class name="rerunTests.classes2copy.RetryClassTest">
+        <methods>
+          <include name="Test2"/>
+          <include name="browserSetup"/>
+          <include name="Test3"/>
+          <include name="Test1"/>
+        </methods>
+      </class> <!-- rerunTests.classes2copy.RetryClassTest -->
+    </classes>
+  </test> <!-- TmpTest(failed) -->
+</suite> <!-- Failed suite [TmpSuite] -->

@@ -10,6 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.sikuli.script.App;
+import org.sikuli.script.FindFailed;
 import org.sikuli.script.Screen;
 import org.testng.Assert;
 
@@ -83,6 +84,27 @@ public class Methods {
     }
 
     public static void login() throws InterruptedException {
+
+        try {
+            screen = new Screen();
+            org.sikuli.script.Pattern checkbox_doNotAskAgain = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
+            screen.wait(checkbox_doNotAskAgain, 2);
+            screen.click(checkbox_doNotAskAgain);
+
+            org.sikuli.script.Pattern option_updateJavaLater = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
+            screen.wait(option_updateJavaLater, 2);
+            screen.click(option_updateJavaLater);
+
+            org.sikuli.script.Pattern checkbox_acceptTheRisk = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
+            screen.wait(checkbox_acceptTheRisk, 2);
+            screen.click(checkbox_acceptTheRisk);
+
+            org.sikuli.script.Pattern button_Run = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
+            screen.wait(button_Run, 2);
+            screen.click(button_Run);
+        } catch (FindFailed findFailed) {
+            findFailed.printStackTrace();
+        }
         if (method == "sso") {
             WebElement button_SSO = driver.findElement(By.cssSelector("#ssoButton > span"));
             String winHandleBefore = driver.getWindowHandle();
@@ -150,23 +172,24 @@ public class Methods {
             WebElement button_Cancel = driver.findElement(By.cssSelector("[id = 'btn_np_negative']"));
             button_Cancel.click();
         } catch(Exception e){}*/
- try{
-     WebDriverWait waitForButton_OK = new WebDriverWait(driver, 2);
-     waitForButton_OK.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[id = 'btn_ef_positive']")));
-     WebElement button_OK = driver.findElement(By.cssSelector("[id = 'btn_ef_positive']"));
-     button_OK.click();
+        try {
+            WebDriverWait waitForButton_OK = new WebDriverWait(driver, 2);
+            waitForButton_OK.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[id = 'btn_ef_positive']")));
+            WebElement button_OK = driver.findElement(By.cssSelector("[id = 'btn_ef_positive']"));
+            button_OK.click();
      /*WebDriverWait waitForButton_Cancel = new WebDriverWait(driver, 10);
      waitForButton_Cancel.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[id = 'btn_ef_positive']")));*/
-     Thread.sleep(3000);
-     WebElement button_Cancel = driver.findElement(By.cssSelector("[id = 'btn_np_negative']"));
-     button_Cancel.click();
+            Thread.sleep(3000);
+            WebElement button_Cancel = driver.findElement(By.cssSelector("[id = 'btn_np_negative']"));
+            button_Cancel.click();
 
-     screen = new Screen();
-     button_Discard = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
-     screen.wait(button_Discard, 10);
-     screen.click(button_Discard);
+            screen = new Screen();
+            button_Discard = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Discard.png");
+            screen.wait(button_Discard, 10);
+            screen.click(button_Discard);
 
-        } catch(Exception e){}
+        } catch (Exception e) {
+        }
 
         /*WebDriverWait waitForButton_OK = new WebDriverWait(driver, 2);
         waitForButton_OK.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[id = 'btn_ef_positive']")));
