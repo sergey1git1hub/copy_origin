@@ -63,11 +63,15 @@ public class TwoLinesAgentHangupv2mock {
         Thread.sleep(5000);
         phoneNumberField = agentChrome.findElement(By.cssSelector("#PhoneNumber"));
         phoneNumberField.sendKeys("94949");
-        // Thread.sleep(1000);
+
+        /*screen.wait(button_3CXAcceptCall, 10);
+        screen.click(button_3CXAcceptCall);*/
+         Thread.sleep(2000);
         button_Call = agentChrome.findElement(By.cssSelector("#btn_call"));
         WebDriverWait waitForCallButton = new WebDriverWait(agentChrome, 10);
         waitForCallButton.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#btn_call")));
         button_Call.click();
+
         // Thread.sleep(1000);
         answerCallOnClientSideLine1();
         screen.wait(button_3CXAcceptCall, 10);
@@ -102,7 +106,7 @@ public class TwoLinesAgentHangupv2mock {
         button_Call = agentChrome.findElement(By.cssSelector("#btn_call"));
         button_Call.click();
         Thread.sleep(1000);
-        WebDriverWait waitForOnHoldStatus = new WebDriverWait(agentChrome, 10);
+       /* WebDriverWait waitForOnHoldStatus = new WebDriverWait(agentChrome, 10);
         waitForOnHoldStatus.until(ExpectedConditions.textMatches(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bOnhold\\b.*")));
         WebDriverWait waitForLineRinging = new WebDriverWait(agentChrome, 5);
@@ -110,7 +114,7 @@ public class TwoLinesAgentHangupv2mock {
                 "#btn_line_2"), Pattern.compile(".*\\bRinging\\b.*")));
         line2 = agentChrome.findElement(By.cssSelector("#btn_line_2"));
         System.out.println(line2.getText());
-        assertTrue(line2.getText().equals("Ringing"));
+        assertTrue(line2.getText().equals("Ringing"));*/
         answerCallOnClientSideLine2();
         Thread.sleep(500);
         screen.wait(button_3CXAcceptCall, 10);
@@ -187,7 +191,7 @@ public class TwoLinesAgentHangupv2mock {
         Thread.sleep(1000);
         WebDriverWait waitForAvailableStatus = new WebDriverWait(agentChrome, 10);
         waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
-                "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*|.*\\bFinished\\b.*|.*\\bWrapup\\b.*")));
+                "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*|.*\\bOnhold\\b.*")));
 /*        waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*")));*/
         Thread.sleep(2000);
