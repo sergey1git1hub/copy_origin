@@ -58,13 +58,13 @@ public class TwoLinesAgentHangupv2mock {
         answerCallOnClientSideLine1();*/
 
         agentChrome = driver;
-        cxphone = App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
+        //cxphone = App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
         screen = new Screen();
         button_3CXAcceptCall = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_3CXAcceptCall.png");
         Thread.sleep(3000);
         phoneNumberField = agentChrome.findElement(By.cssSelector("#PhoneNumber"));
         phoneNumberField.sendKeys("94949");
-
+        cxphone = App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
         button_3CXCall = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_3CXCall.png");
         screen.wait(button_3CXCall, 10);
         screen.click(button_3CXCall);
@@ -76,6 +76,7 @@ public class TwoLinesAgentHangupv2mock {
 
         // Thread.sleep(1000);
         answerCallOnClientSideLine1();
+        App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
         screen.wait(button_3CXAcceptCall, 10);
         screen.click(button_3CXAcceptCall);
         Thread.sleep(2000);
