@@ -22,6 +22,7 @@ public class TwoLinesAgentHangupv2mock {
     static App cxphone;
     static Screen screen;
     static org.sikuli.script.Pattern button_3CXAcceptCall;
+    static org.sikuli.script.Pattern button_3CXCall;
     static org.sikuli.script.Pattern closePhoneWindow;
     org.sikuli.script.Pattern button_3CXHangupCall;
 
@@ -60,17 +61,18 @@ public class TwoLinesAgentHangupv2mock {
         cxphone = App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
         screen = new Screen();
         button_3CXAcceptCall = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_3CXAcceptCall.png");
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         phoneNumberField = agentChrome.findElement(By.cssSelector("#PhoneNumber"));
         phoneNumberField.sendKeys("94949");
 
-        /*screen.wait(button_3CXAcceptCall, 10);
-        screen.click(button_3CXAcceptCall);*/
-         Thread.sleep(2000);
+        button_3CXCall = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_3CXCall.png");
+        screen.wait(button_3CXCall, 10);
+        screen.click(button_3CXCall);
+        /* Thread.sleep(2000);
         button_Call = agentChrome.findElement(By.cssSelector("#btn_call"));
         WebDriverWait waitForCallButton = new WebDriverWait(agentChrome, 10);
         waitForCallButton.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#btn_call")));
-        button_Call.click();
+        button_Call.click();*/
 
         // Thread.sleep(1000);
         answerCallOnClientSideLine1();

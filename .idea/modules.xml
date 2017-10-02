@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://C:/SikuliImages/SikuliImages.iml" filepath="C:/SikuliImages/SikuliImages.iml" />
       <module fileurl="file://$PROJECT_DIR$/WebDriverTests.iml" filepath="$PROJECT_DIR$/WebDriverTests.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/test/test.iml" filepath="$PROJECT_DIR$/src/test/test.iml" />
     </modules>
