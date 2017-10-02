@@ -2,8 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="regression">
-    <!--<test name="TwoLinesAgentHangupv2">
-     classes2sses>
+    <test name="TwoLinesAgentHangupv2">
+     <classes>
             <class name="webphone.TwoLinesAgentHangupv2">
                 <methods>
                     <include name = "chromeLogin"/>
@@ -14,10 +14,10 @@
                     <include name = "setResultCodeAndCheckAvailableStatus"/>
                 </methods>
             </class>
-      classes2sses>
+      </classes>
     </test>
     <test name="TwoLinesClientHangupv2">
-     classes2sses>
+     <classes>
             <class name="webphone.TwoLinesClientHangupv2">
                 <methods>
                     <include name="ssoLoginChrome"/>
@@ -28,11 +28,11 @@
                     <include name="setResultCodeAndCheckAvailableStatus"/>
                 </methods>
             </class>
-      classes2sses>
+      </classes>
     </test>
 
     <test name="PDPreviewFreeCallIE">
-     classes2sses>
+     <classes>
             <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeCallIE">
                 <methods>
                     <include name = "ssoLoginChrome"/>
@@ -45,11 +45,11 @@
                     <include name = "checkAvailableStatus"/>
                 </methods>
             </class>
-      classes2sses>
+     </classes>
     </test>
 
     <test name="PDPreviewFreeAUXsubtests">
-     classes2sses>
+     <classes>
             <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeAUXsubtests">
                 <methods>
                     <include name = "ssoLoginChrome"/>
@@ -61,8 +61,8 @@
                     <include name = "receiveIncomingCall"/>
                 </methods>
             </class>
-      classes2sses>
-    </test>-->
+      </classes>
+    </test>
 
     <test name="whole script">
         <classes>
