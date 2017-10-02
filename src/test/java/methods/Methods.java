@@ -84,7 +84,7 @@ public class Methods {
                     try {
                         screen = new Screen();
                         org.sikuli.script.Pattern checkbox_doNotAskAgain = new org.sikuli.script.Pattern("C:\\SikuliImages\\checkbox_doNotAskAgain.png");
-                        screen.wait(checkbox_doNotAskAgain, 5);
+                        screen.wait(checkbox_doNotAskAgain, 2);
                         screen.click(checkbox_doNotAskAgain);
 
                         org.sikuli.script.Pattern option_updateJavaLater = new org.sikuli.script.Pattern("C:\\SikuliImages\\option_updateJavaLater.png");
@@ -95,7 +95,7 @@ public class Methods {
                     }
                     try{
                         org.sikuli.script.Pattern checkbox_acceptTheRisk = new org.sikuli.script.Pattern("C:\\SikuliImages\\checkbox_acceptTheRisk.png");
-                        screen.wait(checkbox_acceptTheRisk, 10);
+                        screen.wait(checkbox_acceptTheRisk, 3);
                         screen.click(checkbox_acceptTheRisk);
 
                         org.sikuli.script.Pattern button_Run = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Run.png");

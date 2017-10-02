@@ -181,11 +181,15 @@ public class TwoLinesClientHangupv2mock {
     }
 
     @Test(dependsOnMethods = "clientHangupLine2")
-    public static void setResultCodeAndCheckAvailableStatus() throws InterruptedException {
-        WebDriverWait waitForResultCode = new WebDriverWait(agentChrome, 5);
+    public static void setResultCodeAndCheckAvailableStatus() throws InterruptedException, FindFailed {
+        /*WebDriverWait waitForResultCode = new WebDriverWait(agentChrome, 5);
         waitForResultCode.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[text()='Удачно']")));
         WebElement resultCode = agentChrome.findElement(By.xpath("//td[text()='Удачно']"));
-        resultCode.click();
+        resultCode.click();*/
+        Screen screen = new Screen();
+        org.sikuli.script.Pattern resultCodeUdachno = new org.sikuli.script.Pattern("C:\\SikuliImages\\resultCodeUdachno.png");
+        screen.wait(resultCodeUdachno, 10);
+        screen.click(resultCodeUdachno);
         Thread.sleep(1000); //necessary
         WebElement button_Save = agentChrome.findElement(By.cssSelector("#btn_rslt > span.ui-button-text.ui-c"));
         button_Save.click();/*
