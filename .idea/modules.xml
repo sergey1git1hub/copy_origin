@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/webchat.iml" filepath="$PROJECT_DIR$/webchat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebDriverTests.iml" filepath="$PROJECT_DIR$/WebDriverTests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/test/test.iml" filepath="$PROJECT_DIR$/src/test/test.iml" />
     </modules>
   </component>
 </project>
