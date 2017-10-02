@@ -103,11 +103,13 @@ public class TwoLinesAgentHangupv2mock {
         phoneNumberField = agentChrome.findElement(By.cssSelector("#PhoneNumber"));
         phoneNumberField.sendKeys("94948");
         Thread.sleep(1000);
-        WebDriverWait waitForCallButton = new WebDriverWait(agentChrome, 5);
+        screen.wait(button_3CXCall, 10);
+        screen.click(button_3CXCall);
+        /*WebDriverWait waitForCallButton = new WebDriverWait(agentChrome, 5);
         waitForCallButton.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#btn_call")));
         button_Call = agentChrome.findElement(By.cssSelector("#btn_call"));
         button_Call.click();
-        Thread.sleep(1000);
+        Thread.sleep(1000);*/
        /* WebDriverWait waitForOnHoldStatus = new WebDriverWait(agentChrome, 10);
         waitForOnHoldStatus.until(ExpectedConditions.textMatches(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bOnhold\\b.*")));
