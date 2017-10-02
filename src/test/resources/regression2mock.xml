@@ -44,8 +44,8 @@
                     <include name = "checkAvailableStatus"/>
                 </methods>
             </class>
-      </classes>-->
-    </test>
+      </classes>
+    </test>-->
 
    <!-- <test name="PDPreviewFreeAUXsubtests">
      <classes>
