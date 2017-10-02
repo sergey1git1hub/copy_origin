@@ -74,7 +74,6 @@ public class Methods {
             ieCapabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
                     true);
             driver = new InternetExplorerDriver(ieCapabilities);
-            // Set the page load timeout to 10 seconds.
 
             Thread thread1 = new Thread() {
                 public void run() {

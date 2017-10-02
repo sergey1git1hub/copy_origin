@@ -173,14 +173,14 @@ public class TwoLinesAgentHangupv2mock {
 
     @Test(dependsOnMethods = "agentHangupLine2")
     public static void setResultCodeAndCheckAvailableStatus() throws InterruptedException, FindFailed {
-        /*WebDriverWait waitForResultCode = new WebDriverWait(agentChrome, 5);
+        WebDriverWait waitForResultCode = new WebDriverWait(agentChrome, 5);
         waitForResultCode.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[text()='Удачно']")));
         WebElement resultCode = agentChrome.findElement(By.xpath("//td[text()='Удачно']"));
         resultCode.click();
         Thread.sleep(1000);
         WebElement button_Save = agentChrome.findElement(By.cssSelector("#btn_rslt > span.ui-button-text.ui-c"));
         button_Save.click();
-        Thread.sleep(1000);*/
+        Thread.sleep(1000);
         WebDriverWait waitForAvailableStatus = new WebDriverWait(agentChrome, 10);
         waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*|.*\\bFinished\\b.*|.*\\bWrapup\\b.*")));

@@ -98,7 +98,7 @@ public class TwoLinesClientHangupv2mock {
         Thread.sleep(5000);
         phoneNumberField = agentChrome.findElement(By.cssSelector("#PhoneNumber"));
         phoneNumberField.sendKeys("94949");
-       // Thread.sleep(1000);
+        Thread.sleep(1000);
         button_Call = agentChrome.findElement(By.cssSelector("#btn_call"));
         button_Call.click();
        // Thread.sleep(1000);
@@ -177,40 +177,36 @@ public class TwoLinesClientHangupv2mock {
         org.sikuli.script.Pattern closePhoneWindow = new org.sikuli.script.Pattern("C:\\SikuliImages\\closePhoneWindow.png");
         screen.wait(closePhoneWindow, 10);
         screen.click(closePhoneWindow);
-       // Thread.sleep(1000);
+        Thread.sleep(1000);
     }
 
-    @Test(dependsOnMethods = "clientHangupLine2")
-    public static void setResultCodeAndCheckAvailableStatus() throws InterruptedException {
-       /* WebDriverWait waitForResultCode = new WebDriverWait(agentChrome, 5);
-        waitForResultCode.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[text()='Удачно']")));
-        WebElement resultCode = agentChrome.findElement(By.xpath("//td[text()='Удачно']"));
-        resultCode.click();
-        Thread.sleep(1000); //necessary
-        WebElement button_Save = agentChrome.findElement(By.cssSelector("#btn_rslt > span.ui-button-text.ui-c"));
-        button_Save.click();
-        WebDriverWait waitForAvailableStatus = new WebDriverWait(agentChrome, 10);
-        waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
-                "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*")));
-       // Thread.sleep(2000);
-        line1 = agentChrome.findElement(By.cssSelector("#btn_line_1"));
-        line1.click();*/
 
-        WebDriverWait waitForAvailableStatus = new WebDriverWait(agentChrome, 10);
-        waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
-                "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*|.*\\bFinished\\b.*|.*\\bWrapup\\b.*")));
+        @Test(dependsOnMethods = "clientHangupLine2")
+        public static void setResultCodeAndCheckAvailableStatus () throws InterruptedException, FindFailed {
+            WebDriverWait waitForResultCode = new WebDriverWait(agentChrome, 5);
+            waitForResultCode.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[text()='Удачно']")));
+            WebElement resultCode = agentChrome.findElement(By.xpath("//td[text()='Удачно']"));
+            resultCode.click();
+            Thread.sleep(1000);
+            WebElement button_Save = agentChrome.findElement(By.cssSelector("#btn_rslt > span.ui-button-text.ui-c"));
+            button_Save.click();
+            Thread.sleep(1000);
+            WebDriverWait waitForAvailableStatus = new WebDriverWait(agentChrome, 10);
+            waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
+                    "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*|.*\\bFinished\\b.*|.*\\bWrapup\\b.*")));
 /*        waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*")));*/
-        Thread.sleep(2000);
-        line1 = agentChrome.findElement(By.cssSelector("#btn_line_1"));
+            Thread.sleep(2000);
+            line1 = agentChrome.findElement(By.cssSelector("#btn_line_1"));
         /*line1.click();*/
-        try {
-            if (driver instanceof JavascriptExecutor) {
-                ((JavascriptExecutor) driver)
-                        .executeScript("wp_common.wp_ChangeLine(1); log(event);");
+            try {
+                if (driver instanceof JavascriptExecutor) {
+                    ((JavascriptExecutor) driver)
+                            .executeScript("wp_common.wp_ChangeLine(1); log(event);");
+                }
+            } catch (Exception e) {
             }
-        } catch(Exception e){}
-    }
+        }
 
     public static void answerCallOnClientSideLine1() {
 
