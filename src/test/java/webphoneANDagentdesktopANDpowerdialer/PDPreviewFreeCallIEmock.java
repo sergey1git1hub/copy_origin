@@ -144,15 +144,16 @@ public class PDPreviewFreeCallIEmock {
             }
         } catch(Exception e){}*/
         agentChrome = driver;
-        Screen screen = new Screen();
+       /* Screen screen = new Screen();
         org.sikuli.script.Pattern currentStatus = new org.sikuli.script.Pattern("C:\\SikuliImages\\currentStatus.png");
         screen.wait(currentStatus, 10);
+        Thread.sleep(2000);
         screen.click(currentStatus);
         Thread.sleep(1000);
         org.sikuli.script.Pattern availableStatus = new org.sikuli.script.Pattern("C:\\SikuliImages\\availableStatus.png");
         screen.wait(availableStatus, 10);
         screen.click(availableStatus);
-        Thread.sleep(3000);
+        Thread.sleep(1000);*/
         WebDriverWait waitForAvailableStatus = new WebDriverWait(agentChrome, 5);
         waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*")));
