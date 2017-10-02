@@ -64,7 +64,7 @@ public class MethodsTest {
         initialStatus = "Тренинг";
     }
 
-    @Test(dependsOnMethods = "initializeVariablesAD")
+    @Test(dependsOnMethods = "initializeVariablesIEAD")
     public static void IELoginAD() throws InterruptedException {
         initializeVariablesIEAD();
         loadPage();

@@ -230,9 +230,10 @@ public class Methods {
     }
 
     public static void checkStatus(String status) throws InterruptedException {
-        WebDriverWait waitForStatus = new WebDriverWait(driver, 50);
+        Thread.sleep(3000);
+       /* WebDriverWait waitForStatus = new WebDriverWait(driver, 50);
         waitForStatus.until(ExpectedConditions.textMatches(By.cssSelector(
-                "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\b" + status + "\\b.*")));
+                "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\b" + status + "\\b.*")));*/
         WebElement currentStatus = driver.findElement(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"));
         Assert.assertTrue(currentStatus.getText().contains(status));
