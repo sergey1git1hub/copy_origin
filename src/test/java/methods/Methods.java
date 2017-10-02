@@ -86,7 +86,7 @@ public class Methods {
                     try {
                         screen = new Screen();
                         org.sikuli.script.Pattern checkbox_doNotAskAgain = new org.sikuli.script.Pattern("C:\\SikuliImages\\checkbox_doNotAskAgain.png");
-                        screen.wait(checkbox_doNotAskAgain, 5);
+                        screen.wait(checkbox_doNotAskAgain, 2);
                         screen.click(checkbox_doNotAskAgain);
 
                         org.sikuli.script.Pattern option_updateJavaLater = new org.sikuli.script.Pattern("C:\\SikuliImages\\option_updateJavaLater.png");
