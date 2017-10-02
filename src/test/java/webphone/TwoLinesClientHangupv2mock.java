@@ -202,7 +202,7 @@ public class TwoLinesClientHangupv2mock {
 
         WebDriverWait waitForAvailableStatus = new WebDriverWait(agentChrome, 10);
         waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
-                "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*|.*\\bFinished\\b.*|.*\\bWrapup\\b.*")));
+                "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*|.*\\bOnhold\\b.*")));
 /*        waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*")));*/
         Thread.sleep(2000);
