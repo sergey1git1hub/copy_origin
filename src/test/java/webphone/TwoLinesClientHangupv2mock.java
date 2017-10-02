@@ -22,6 +22,7 @@ public class TwoLinesClientHangupv2mock {
     static App cxphone;
     static Screen screen;
     static org.sikuli.script.Pattern button_3CXAcceptCall;
+    static org.sikuli.script.Pattern button_3CXCall;
     static org.sikuli.script.Pattern closePhoneWindow;
     static org.sikuli.script.Pattern button_3CXHangupCall;
 
@@ -92,19 +93,21 @@ public class TwoLinesClientHangupv2mock {
     @Test(dependsOnMethods = "IELogin")
     public static void callOnFirstLine() throws InterruptedException, FindFailed {
         agentChrome = driver;
-        cxphone = App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
         screen = new Screen();
         button_3CXAcceptCall = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_3CXAcceptCall.png");
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         phoneNumberField = agentChrome.findElement(By.cssSelector("#PhoneNumber"));
         phoneNumberField.sendKeys("94949");
-       // Thread.sleep(1000);
-        button_Call = agentChrome.findElement(By.cssSelector("#btn_call"));
-        button_Call.click();
-       // Thread.sleep(1000);
+        cxphone = App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
+        button_3CXCall = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_3CXCall.png");
+        screen.wait(button_3CXCall, 10);
+        screen.click(button_3CXCall);
+
         answerCallOnClientSideLine1();
+        App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
         screen.wait(button_3CXAcceptCall, 10);
         screen.click(button_3CXAcceptCall);
+        Thread.sleep(2000);
        // Thread.sleep(1000);
         closePhoneWindow = new org.sikuli.script.Pattern("C:\\SikuliImages\\closePhoneWindow.png");
         screen.wait(closePhoneWindow, 10);
