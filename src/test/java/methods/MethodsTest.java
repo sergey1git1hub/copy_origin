@@ -55,7 +55,7 @@ public class MethodsTest {
     }
 
     @Test
-    public static void initializeVariablesIEAD() throws UnsupportedEncodingException {
+    public static void initializeVariablesIEAD()  {
         url = "http://172.21.24.109/gbwebphone/";
         browser = "ie";
         method = "usual";
@@ -63,10 +63,21 @@ public class MethodsTest {
         password = "1";
         group = "pasha_G_5_copy_preview";
         fast = false;
-        String myString = "Тренинг";
-        byte bytes[] = myString.getBytes("ISO-8859-1");
-        String value = new String(bytes, "UTF-8");
-        initialStatus = value;
+
+
+        try {
+            String myString = "Тренинг";
+            byte bytes[] = new byte[0];
+            String value = new String(bytes, "UTF-16");
+            bytes = myString.getBytes("ISO-8859-1");
+            initialStatus = value;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            initialStatus = "Тренинг";
+        }
+
+
+        /*initialStatus = "Тренинг";*/
     }
 
     @Test(dependsOnMethods = "initializeVariablesIEAD")
