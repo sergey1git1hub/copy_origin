@@ -2,6 +2,7 @@ package webphoneANDpowerdialer;
 
 import methods.MethodsTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -255,7 +256,7 @@ public class PDProgressiveReleasedAUXagentHangupmock {
         Thread.sleep(1000);
     }
 
-    @Test(dependsOnMethods = "agentHangup")
+  /*  @Test(dependsOnMethods = "agentHangup")
     public static void setResultCodeAndCheckAvailableStatus() throws InterruptedException, FindFailed {
         WebDriverWait waitForResultCode = new WebDriverWait(agentChrome, 10);
         waitForResultCode.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[text()='Удачно']")));
@@ -268,9 +269,39 @@ public class PDProgressiveReleasedAUXagentHangupmock {
         WebDriverWait waitForAvailableStatus = new WebDriverWait(agentChrome, 10);
         waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*|.*\\bFinished\\b.*|.*\\bWrapup\\b.*")));
+*//*        waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
+                "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*")));*//*
+        Thread.sleep(2000);
+    }*/
+
+    @Test(dependsOnMethods = "agentHangup")
+    public static void setResultCodeAndCheckAvailableStatus() throws InterruptedException, FindFailed {
+        Screen screen = new Screen();
+        org.sikuli.script.Pattern resultCodeUdachno = new org.sikuli.script.Pattern("C:\\SikuliImages\\resultCodeUdachno.png");
+        screen.wait(resultCodeUdachno, 10);
+        screen.click(resultCodeUdachno);
+        /*WebDriverWait waitForResultCode = new WebDriverWait(agentChrome, 5);
+        waitForResultCode.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[text()='Удачно']")));
+        WebElement resultCode = agentChrome.findElement(By.xpath("//td[text()='Удачно']"));
+        resultCode.click();*/
+        Thread.sleep(1000);
+        WebElement button_Save = agentChrome.findElement(By.cssSelector("#btn_rslt > span.ui-button-text.ui-c"));
+        button_Save.click();
+        Thread.sleep(1000);
+        WebDriverWait waitForAvailableStatus = new WebDriverWait(agentChrome, 10);
+        waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
+                "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*|.*\\bOnhold\\b.*")));
 /*        waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*")));*/
         Thread.sleep(2000);
+        line1 = agentChrome.findElement(By.cssSelector("#btn_line_1"));
+        /*line1.click();*/
+        try {
+            if (driver instanceof JavascriptExecutor) {
+                ((JavascriptExecutor) driver)
+                        .executeScript("wp_common.wp_ChangeLine(1); log(event);");
+            }
+        } catch(Exception e){}
     }
 
 
