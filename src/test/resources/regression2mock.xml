@@ -30,7 +30,7 @@
                  </class>
            </classes>
          </test>-->
-   <test name="PDPreviewFreeCallIE">
+  <!-- <test name="PDPreviewFreeCallIE">
      <classes>
             <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeCallIEmock">
                 <methods>
@@ -45,9 +45,9 @@
                 </methods>
             </class>
       </classes>
-    </test>
+    </test>-->
 
-   <!-- <test name="PDPreviewFreeAUXsubtests">
+   <test name="PDPreviewFreeAUXsubtests">
      <classes>
             <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeAUXsubtestsmock">
                 <methods>
@@ -62,7 +62,7 @@
             </class>
       </classes>
     </test>
-    <test name="whole script">
+    <!-- <test name="whole script">
      <classes>
             <class name="webphoneANDpowerdialer.PDProgressiveReleasedAUXagentHangupmock">
                 <methods>
