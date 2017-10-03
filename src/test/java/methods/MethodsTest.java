@@ -2,6 +2,8 @@ package methods;
 
 import org.testng.annotations.Test;
 
+import java.io.UnsupportedEncodingException;
+
 import static methods.Methods.*;
 
 /**
@@ -53,7 +55,7 @@ public class MethodsTest {
     }
 
     @Test
-    public static void initializeVariablesIEAD() {
+    public static void initializeVariablesIEAD() throws UnsupportedEncodingException {
         url = "http://172.21.24.109/gbwebphone/";
         browser = "ie";
         method = "usual";
@@ -61,7 +63,10 @@ public class MethodsTest {
         password = "1";
         group = "pasha_G_5_copy_preview";
         fast = false;
-        initialStatus = "Тренинг";
+        String myString = "Тренинг";
+        byte bytes[] = myString.getBytes("ISO-8859-1");
+        String value = new String(bytes, "UTF-8");
+        initialStatus = value;
     }
 
     @Test(dependsOnMethods = "initializeVariablesIEAD")
