@@ -48,7 +48,7 @@ public class TwoLinesAgentHangupv2 {
         button_3CXAcceptCall = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_3CXAcceptCall.png");
         phoneNumberField = agentChrome.findElement(By.cssSelector("#PhoneNumber"));
         phoneNumberField.sendKeys("94949");
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         button_Call = agentChrome.findElement(By.cssSelector("#btn_call"));
         button_Call.click();
         Thread.sleep(1000);
