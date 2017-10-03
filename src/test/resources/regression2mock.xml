@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="regression2">
-         <test name="TwoLinesAgentHangupv2">
+         <!--<test name="TwoLinesAgentHangupv2">
              <classes>
                  <class name="webphone.TwoLinesAgentHangupv2mock">
                      <methods>
@@ -61,8 +61,8 @@
                 </methods>
             </class>
       </classes>
-    </test>
-    <!-- <test name="whole script">
+    </test>-->
+     <test name="whole script">
      <classes>
             <class name="webphoneANDpowerdialer.PDProgressiveReleasedAUXagentHangupmock">
                 <methods>
@@ -79,6 +79,6 @@
                 </methods>
             </class>
       </classes>
-    </test>-->
+    </test>
 
 </suite>
