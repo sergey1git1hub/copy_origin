@@ -61,7 +61,7 @@ public class TwoLinesAgentHangupv2mock {
         //cxphone = App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
         screen = new Screen();
         button_3CXAcceptCall = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_3CXAcceptCall.png");
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         phoneNumberField = agentChrome.findElement(By.cssSelector("#PhoneNumber"));
         phoneNumberField.sendKeys("94949");
         cxphone = App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
