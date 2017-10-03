@@ -294,7 +294,7 @@ public class PDProgressiveReleasedAUXagentHangupmock {
 /*        waitForAvailableStatus.until(ExpectedConditions.textMatches(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*")));*/
         Thread.sleep(2000);
-        line1 = agentChrome.findElement(By.cssSelector("#btn_line_1"));
+        //line1 = agentChrome.findElement(By.cssSelector("#btn_line_1"));
         /*line1.click();*/
         try {
             if (driver instanceof JavascriptExecutor) {
