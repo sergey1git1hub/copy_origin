@@ -2,35 +2,35 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="regression2">
-     <test name="TwoLinesAgentHangupv2">
-         <classes>
-             <class name="webphone.TwoLinesAgentHangupv2mock">
-                 <methods>
-                     <include name = "IELogin"/>
-                     <include name = "callOnFirstLine"/>
-                     <include name = "callOnSecondLine"/>
-                     <include name = "agentHangupLine1()"/>
-                     <include name = "agentHangupLine2()"/>
-                     <include name = "setResultCodeAndCheckAvailableStatus"/>
-                 </methods>
-             </class>
-         </classes>
-     </test>
-     <test name="TwoLinesClientHangupv2">
-      <classes>
-             <class name="webphone.TwoLinesClientHangupv2mock">
-                 <methods>
-                     <include name="IELogin"/>
-                     <include name="callOnFirstLine"/>
-                     <include name="callOnSecondLine"/>
-                     <include name="clientHangupLine1"/>
-                     <include name="clientHangupLine2"/>
-                     <include name="setResultCodeAndCheckAvailableStatus"/>
-                 </methods>
-             </class>
-       </classes>
-     </test>
-<!--   <test name="PDPreviewFreeCallIE">
+    <!--     <test name="TwoLinesAgentHangupv2">
+             <classes>
+                 <class name="webphone.TwoLinesAgentHangupv2mock">
+                     <methods>
+                         <include name = "IELogin"/>
+                         <include name = "callOnFirstLine"/>
+                         <include name = "callOnSecondLine"/>
+                         <include name = "agentHangupLine1()"/>
+                         <include name = "agentHangupLine2()"/>
+                         <include name = "setResultCodeAndCheckAvailableStatus"/>
+                     </methods>
+                 </class>
+             </classes>
+         </test>
+         <test name="TwoLinesClientHangupv2">
+          <classes>
+                 <class name="webphone.TwoLinesClientHangupv2mock">
+                     <methods>
+                         <include name="IELogin"/>
+                         <include name="callOnFirstLine"/>
+                         <include name="callOnSecondLine"/>
+                         <include name="clientHangupLine1"/>
+                         <include name="clientHangupLine2"/>
+                         <include name="setResultCodeAndCheckAvailableStatus"/>
+                     </methods>
+                 </class>
+           </classes>
+         </test>-->
+   <test name="PDPreviewFreeCallIE">
      <classes>
             <class name="webphoneANDagentdesktopANDpowerdialer.PDPreviewFreeCallIEmock">
                 <methods>
@@ -45,7 +45,7 @@
                 </methods>
             </class>
       </classes>
-    </test>-->
+    </test>
 
    <!-- <test name="PDPreviewFreeAUXsubtests">
      <classes>
