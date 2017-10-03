@@ -97,7 +97,7 @@ public class Methods {
                     }
                     try{
                         org.sikuli.script.Pattern checkbox_acceptTheRisk = new org.sikuli.script.Pattern("C:\\SikuliImages\\checkbox_acceptTheRisk.png");
-                        screen.wait(checkbox_acceptTheRisk, 3);
+                        screen.wait(checkbox_acceptTheRisk, 2);
                         screen.click(checkbox_acceptTheRisk);
 
                         org.sikuli.script.Pattern button_Run = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_Run.png");

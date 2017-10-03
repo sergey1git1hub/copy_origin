@@ -6,10 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.IRetryAnalyzer;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
+
+import org.sikuli.script.App;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Screen;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,13 +24,13 @@ import static methods.Methods.driver;
 
 //import java.lang.Object;
 
-public class PDPreviewFreeAUXsubtestsmock implements IRetryAnalyzer {
+public class PDPreviewFreeAUXsubtestsmock /*implements IRetryAnalyzer*/ {
     private int retryCount = 0;
     private int maxRetryCount = 1;
     static String phoneNumber = "94949";
     static String webphoneUrl = "http://172.21.24.109/gbwebphone/";
 
-    public boolean retry(ITestResult result) {
+   /* public boolean retry(ITestResult result) {
 
         if (retryCount < maxRetryCount) {
             retryCount++;
@@ -36,14 +38,14 @@ public class PDPreviewFreeAUXsubtestsmock implements IRetryAnalyzer {
         }
         return false;
     }
-
+*/
     WebElement button_nextForm;
-    @Test(retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class)
+    @Test(/*retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class*/)
     public static void ssoLoginChrome() {
     }
 
 
-    @Test(retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class)
+    @Test(/*retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class*/)
     public static void IELoginAD() throws InterruptedException {
         MethodsTest.IELoginAD();
     }
@@ -95,28 +97,49 @@ public class PDPreviewFreeAUXsubtestsmock implements IRetryAnalyzer {
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bТренинг\\b.*")));
     }
 */
-    @Test(dependsOnMethods = "IELoginAD", retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class)
-    public static void changeStatusToAUX() {
+
+    @Test(dependsOnMethods = "IELoginAD")
+    public static void changeStatusToAUX() throws InterruptedException, FindFailed {
+
+        agentChrome = driver;
+        Screen screen = new Screen();
+        org.sikuli.script.Pattern currentStatus = new org.sikuli.script.Pattern("C:\\SikuliImages\\currentStatus.png");
+        screen.wait(currentStatus, 10);
+        //Thread.sleep(2000);
+        screen.click(currentStatus);
+        Thread.sleep(1000);
+        org.sikuli.script.Pattern auxStatus = new org.sikuli.script.Pattern("C:\\SikuliImages\\auxStatus.png");
+        screen.wait(auxStatus, 10);
+        screen.click(auxStatus);
+        Thread.sleep(1000);
+        WebDriverWait waitForAuxStatus = new WebDriverWait(agentChrome, 5);
+        waitForAuxStatus.until(ExpectedConditions.textMatches(By.cssSelector(
+                "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAUX\\b.*")));
+    }
+   /* @Test(dependsOnMethods = "IELoginAD"*//*, retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class*//*)
+    public static void changeStatusToAUX() throws InterruptedException {
         agentChrome = driver;
         WebElement currentStatus = agentChrome.findElement(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"));
         currentStatus.click();
+        Thread.sleep(2000);
+
         WebElement AUXStatus = agentChrome.findElement(By.xpath(
-                "//*[contains(text(),'AUX')]"));
+                "/*//*[contains(text(),'AUX')]"));
         AUXStatus.click();
         WebDriverWait waitForAUXStatus = new WebDriverWait(agentChrome, 5);
         waitForAUXStatus.until(ExpectedConditions.textMatches(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAUX\\b.*")));
-    }
+    }*/
 
-    @Test(dependsOnMethods = "changeStatusToAUX", retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class)
+    @Test(dependsOnMethods = "changeStatusToAUX"/*, retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class*/)
     public static void switchToADTab() {
         WebElement adTab = agentChrome.findElement(By.xpath("//a[@href = '#tabView:tab123']"));
         adTab.click();
     }
 
 
-    @Test(retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class)
+    @Test(/*retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class*/)
     public void testCRMTab() throws InterruptedException {
         WebElement adTab = agentChrome.findElement(By.xpath("//a[@href = '#tabView:tab123']"));
         adTab.click();
@@ -154,7 +177,7 @@ public class PDPreviewFreeAUXsubtestsmock implements IRetryAnalyzer {
         stmt.execute(query);
     }
 
-    @Test(dependsOnMethods = "switchToADTab", retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class)
+    @Test(dependsOnMethods = "switchToADTab"/*, retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class*/)
     public static void runSQLQuery() throws SQLException, ClassNotFoundException {
         updateRecord(getConnection(), phoneNumber);
     }
@@ -168,7 +191,7 @@ public class PDPreviewFreeAUXsubtestsmock implements IRetryAnalyzer {
         //button_Accept.click();
     }*/
 
-    @Test(dependsOnMethods = "runSQLQuery", retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class)
+    @Test(dependsOnMethods = "runSQLQuery"/*, retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class*/)
     public static void noIncomingCall() throws InterruptedException {
         try{
         WebDriverWait waitForPreviewStatus = new WebDriverWait(agentChrome, 5);
@@ -181,7 +204,7 @@ public class PDPreviewFreeAUXsubtestsmock implements IRetryAnalyzer {
         Assert.assertFalse(currentStatus.getText().contains("Preview"));
     }
 
-    @Test(dependsOnMethods = "noIncomingCall", retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class)
+    @Test(dependsOnMethods = "noIncomingCall"/*, retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class*/)
     public static void changeStatusToAvailable() {
         WebElement currentStatus = agentChrome.findElement(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"));
@@ -194,7 +217,7 @@ public class PDPreviewFreeAUXsubtestsmock implements IRetryAnalyzer {
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bAvailable\\b.*")));
     }
 
-    @Test(dependsOnMethods = "changeStatusToAvailable", retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class)
+    @Test(dependsOnMethods = "changeStatusToAvailable"/*, retryAnalyzer = PDPreviewFreeAUXsubtestsmock.class*/)
     public static void receiveIncomingCall() throws InterruptedException {
         WebDriverWait waitForPreviewStatus = new WebDriverWait(agentChrome, 50);
         waitForPreviewStatus.until(ExpectedConditions.textMatches(By.cssSelector(
