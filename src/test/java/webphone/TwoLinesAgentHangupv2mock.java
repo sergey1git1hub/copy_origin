@@ -56,7 +56,7 @@ public class TwoLinesAgentHangupv2mock {
         button_Call.click();
         Thread.sleep(1000);
         answerCallOnClientSideLine1();*/
-
+        try{
         agentChrome = driver;
         //cxphone = App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
         screen = new Screen();
@@ -87,6 +87,39 @@ public class TwoLinesAgentHangupv2mock {
         waitForInCallStatus.until(ExpectedConditions.textMatches(By.cssSelector(
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bIncall\\b.*")));
         Thread.sleep(2000);
+        } catch (Exception e){
+            agentChrome = driver;
+            //cxphone = App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
+            screen = new Screen();
+            button_3CXAcceptCall = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_3CXAcceptCall.png");
+            Thread.sleep(5000);
+            phoneNumberField = agentChrome.findElement(By.cssSelector("#PhoneNumber"));
+            phoneNumberField.sendKeys("94949");
+            cxphone = App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
+            button_3CXCall = new org.sikuli.script.Pattern("C:\\SikuliImages\\button_3CXCall.png");
+            screen.wait(button_3CXCall, 10);
+            screen.click(button_3CXCall);
+        /* Thread.sleep(2000);
+        button_Call = agentChrome.findElement(By.cssSelector("#btn_call"));
+        WebDriverWait waitForCallButton = new WebDriverWait(agentChrome, 10);
+        waitForCallButton.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#btn_call")));
+        button_Call.click();*/
+
+            // Thread.sleep(1000);
+            answerCallOnClientSideLine1();
+            App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
+            screen.wait(button_3CXAcceptCall, 10);
+            screen.click(button_3CXAcceptCall);
+            Thread.sleep(2000);
+            closePhoneWindow = new org.sikuli.script.Pattern("C:\\SikuliImages\\closePhoneWindow.png");
+            screen.wait(closePhoneWindow, 10);
+            screen.click(closePhoneWindow);
+            waitForInCallStatus = new WebDriverWait(agentChrome, 20);
+            waitForInCallStatus.until(ExpectedConditions.textMatches(By.cssSelector(
+                    "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bIncall\\b.*")));
+            Thread.sleep(2000);
+        }
+
     }
 
     @Test(dependsOnMethods = "callOnFirstLine")
