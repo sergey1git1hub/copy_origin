@@ -88,6 +88,8 @@ public class TwoLinesAgentHangupv2mock {
                 "#statusButton > span.ui-button-text.ui-c"), Pattern.compile(".*\\bIncall\\b.*")));
         Thread.sleep(2000);
         } catch (Exception e){
+            agentChrome.quit();
+            MethodsTest.IELogin();
             agentChrome = driver;
             //cxphone = App.open("C:\\Program Files (x86)\\3CXPhone\\3CXPhone.exe");
             screen = new Screen();
